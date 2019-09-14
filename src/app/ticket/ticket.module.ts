@@ -11,6 +11,8 @@ import { TicketAssigneeSelector } from './ticket-details/ticket-assignee-selecto
 import { TicketInformation } from './ticket-details/ticket-information.component';
 import { TicketCommands } from './ticket-details/ticket-commands.component';
 import { TicketRoutingModule } from './ticket-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { ticketReducers, ticketFeatureName } from './ticket-feature-setup';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,10 @@ import { TicketRoutingModule } from './ticket-routing.module';
     TicketInformation,
     TicketCommands
   ],
-  imports: [CommonModule, TicketRoutingModule]
+  imports: [
+    CommonModule,
+    StoreModule.forFeature(ticketFeatureName, ticketReducers),
+    TicketRoutingModule
+  ]
 })
 export class TicketModule {}

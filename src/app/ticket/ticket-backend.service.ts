@@ -1,30 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
-
-/**
- * This service acts as a mock back-end.
- * It has some intentional errors that you might have to fix.
- */
-
-export type User = {
-  id: number;
-  name: string;
-};
-
-export type Ticket = {
-  id: number;
-  description: string;
-  assigneeId: number;
-  completed: boolean;
-};
+import { Ticket } from './ticket';
+import { Assignee } from './assignee';
 
 function randomDelay() {
   return Math.random() * 4000;
 }
 
-@Injectable()
-export class BackendService {
+@Injectable({ providedIn: 'root' })
+export class TicketBackend {
   storedTickets: Ticket[] = [
     {
       id: 0,
@@ -40,11 +25,11 @@ export class BackendService {
     }
   ];
 
-  storedUsers: User[] = [{ id: 111, name: 'Victor' }];
+  storedUsers: Assignee[] = [{ id: 111, name: 'Victor' }];
 
   lastId = 1;
 
-  constructor() { }
+  constructor() {}
 
   private findTicketById = id =>
     this.storedTickets.find(ticket => ticket.id === +id);
