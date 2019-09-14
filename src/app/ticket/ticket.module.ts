@@ -13,6 +13,8 @@ import { TicketCommands } from './ticket-details/ticket-commands.component';
 import { TicketRoutingModule } from './ticket-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { ticketReducers, ticketFeatureName } from './ticket-feature-setup';
+import { EffectsModule } from '@ngrx/effects';
+import { TicketListEffects } from './ticket-list/ticket-list.effects';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { ticketReducers, ticketFeatureName } from './ticket-feature-setup';
   imports: [
     CommonModule,
     StoreModule.forFeature(ticketFeatureName, ticketReducers),
+    EffectsModule.forFeature([TicketListEffects]),
     TicketRoutingModule
   ]
 })

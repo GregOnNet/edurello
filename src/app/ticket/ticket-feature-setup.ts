@@ -1,5 +1,8 @@
-import { Action, combineReducers } from '@ngrx/store';
-import { ticketsReducer, TicketsSlice } from './ticket-list/tickets.reducer';
+import { Action, combineReducers, createFeatureSelector } from '@ngrx/store';
+import {
+  ticketListReducer,
+  TicketsSlice
+} from './ticket-list/ticket-list.reducer';
 import {
   ticketAssigneesReducer,
   TicketAssigneesSlice
@@ -19,8 +22,10 @@ export interface TicketFeature {
 
 export function ticketReducers(state: TicketFeature, action: Action) {
   return combineReducers<TicketFeature>({
-    tickets: ticketsReducer,
+    tickets: ticketListReducer,
     ticketAssignees: ticketAssigneesReducer,
     ticketFilter: ticketFilterReducer
   })(state, action);
 }
+
+export const ticketFeature = createFeatureSelector<TicketFeature>('ticket');
