@@ -22,7 +22,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "format": "prettier --write \"**/*.{js,json,css,scss,md,ts,html}\""
+    "format": "prettier --write \"**/*.{js,json,css,scss,md,ts,html}\"",
+    "test:watch": "ng test --watch"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
@@ -36,11 +37,6 @@
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.0.0",
-    "karma-chrome-launcher": "~2.2.0",
-    "karma-coverage-istanbul-reporter": "~2.0.1",
-    "karma-jasmine": "~1.1.2",
-    "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
@@ -51,6 +47,9 @@
     "pretty-quick": "^1.10.0",
     "lint-staged": "^8.1.5",
     "@commitlint/cli": "^7.5.2",
-    "@commitlint/config-conventional": "^7.5.0 "
+    "@commitlint/config-conventional": "^7.5.0 ",
+    "jest": "^24.5.0",
+    "@angular-builders/jest": "^7.4.1",
+    "@types/jest": "^24.0.11"
   }
 }
