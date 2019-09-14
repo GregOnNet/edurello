@@ -6,7 +6,6 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
@@ -17,14 +16,13 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
-        strictActionImmutability: true
+        strictActionImmutability: true,
+        strictActionSerializability: true,
+        strictStateSerializability: true
       }
     }),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
+    StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot()
   ],
   providers: [BackendService],
