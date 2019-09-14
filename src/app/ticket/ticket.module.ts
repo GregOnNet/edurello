@@ -10,6 +10,7 @@ import { TicketDetailsPage } from './ticket-details/ticket-details-page.componen
 import { TicketAssigneeSelector } from './ticket-details/ticket-assignee-selector.component';
 import { TicketInformation } from './ticket-details/ticket-information.component';
 import { TicketCommands } from './ticket-details/ticket-commands.component';
+import { TicketRoutingModule } from './ticket-routing.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { TicketCommands } from './ticket-details/ticket-commands.component';
     TicketInformation,
     TicketCommands
   ],
-  imports: [CommonModule]
+  imports: [CommonModule, TicketRoutingModule]
 })
 export class TicketModule {}

@@ -3,17 +3,19 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BackendService } from './backend.service';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { AppRoutingModule } from './app-routing.module';
+import { TicketModule } from './ticket/ticket.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers, {
-      metaReducers,
+      metaReducers: [],
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
@@ -23,7 +25,11 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot({
+      routerState: RouterState.Minimal
+    }),
+    AppRoutingModule,
+    TicketModule
   ],
   providers: [BackendService],
   bootstrap: [AppComponent]
