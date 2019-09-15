@@ -10,6 +10,7 @@ import {
 } from './ticket-assignee.actions';
 import { Ticket } from '../ticket';
 import { activeTicket } from './ticket-details.selectors';
+import { ticketComplete } from '../ticket-list/ticket-list.actions';
 
 @Component({
   selector: 'app-ticket-details-page',
@@ -19,7 +20,7 @@ import { activeTicket } from './ticket-details.selectors';
       [assignees]="assignees$ | async"
       (select)="setAssignee($event)"
     ></app-ticket-assignee-selector>
-    <app-ticket-commands></app-ticket-commands>
+    <app-ticket-commands (complete)="completeTicket()"></app-ticket-commands>
   `
 })
 export class TicketDetailsPage implements OnInit {
@@ -37,5 +38,9 @@ export class TicketDetailsPage implements OnInit {
 
   setAssignee(assignee: Assignee) {
     this.store.dispatch(ticketSetAssignee({ payload: assignee }));
+  }
+
+  completeTicket() {
+    this.store.dispatch(ticketComplete());
   }
 }

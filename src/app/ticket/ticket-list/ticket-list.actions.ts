@@ -14,3 +14,22 @@ export const ticketAddCreated = createAction(
   '[Ticket API] Cache created ticket',
   props<{ payload: Ticket }>()
 );
+
+export const ticketCacheCreated = createAction(
+  '[Ticket API] Cache created ticket',
+  props<{ payload: Ticket }>()
+);
+
+export const ticketComplete = createAction(
+  '[Ticket Details Page] Complete ticket'
+);
+
+export const ticketCompleteSuccess = createAction(
+  '[Ticket Details Page] Success completing ticket',
+  ({ payload }: { payload: Ticket }) => ({
+    payload: {
+      id: payload.id,
+      changes: payload
+    }
+  })
+);

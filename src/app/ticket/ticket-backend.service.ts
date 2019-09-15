@@ -95,9 +95,13 @@ export class TicketBackend {
     if (foundTicket) {
       return of(foundTicket).pipe(
         delay(randomDelay()),
-        tap((ticket: Ticket) => {
-          ticket.completed = true;
-        })
+        tap(
+          (ticket: Ticket) =>
+            (this.storedTickets = this.storedTickets.map(t =>
+              t.id === ticket.id ? { ...t, completed } : t
+            ))
+        ),
+        map(({ id }) => this.findTicketById(id))
       );
     }
 

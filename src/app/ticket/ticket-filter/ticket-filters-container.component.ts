@@ -12,7 +12,7 @@ import { ticketSetDescriptionFilter } from './ticket-filter.actions';
   `,
   styles: [':host { display: block; }']
 })
-export class TicketFiltersContainerComponent {
+export class TicketFiltersContainer {
   constructor(private store: Store<TicketFeature>) {}
 
   setTextFilter(query: string) {

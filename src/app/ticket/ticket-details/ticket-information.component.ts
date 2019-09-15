@@ -12,6 +12,9 @@ import { Assignee } from '../assignee';
         <strong>Assigned to: </strong
         ><small>{{ ticket.assignee.name || 'nobody' }}</small>
       </p>
+      <p *ngIf="ticket.completed">
+        <strong>Completed: </strong><small>☑️</small>
+      </p>
     </ng-container>
 
     <ng-template #loadingTicket>

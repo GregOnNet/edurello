@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TicketBackend } from '../ticket-backend.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { exhaustMap, map, tap, withLatestFrom } from 'rxjs/operators';
+import { exhaustMap, map, withLatestFrom } from 'rxjs/operators';
 import {
   ticketAssigneesLoadAll,
   ticketAssigneesLoadAllSuccess,

@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Ticket } from '../ticket';
 
 @Component({
   selector: 'app-ticket-commands',
   template: `
-    <p>
-      ticket-commands works!
-    </p>
+    <button (click)="emitComplete()">COMPLETE</button>
   `,
   styles: []
 })
-export class TicketCommands implements OnInit {
-  constructor() {}
+export class TicketCommands {
+  @Output() complete = new EventEmitter<Ticket>();
 
-  ngOnInit() {}
+  emitComplete() {
+    this.complete.emit();
+  }
 }

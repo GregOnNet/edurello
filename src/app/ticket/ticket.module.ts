@@ -5,7 +5,6 @@ import { TicketCreationPage } from './ticket-creation/ticket-creation-page.compo
 import { TicketListPage } from './ticket-list/ticket-list-page.component';
 import { TicketListItem } from './ticket-list/ticket-list-item.component';
 import { TicketFilterText } from './ticket-filter/ticket-filter-text.component';
-import { TicketFilterLinks } from './ticket-filter/ticket-filter-links.component';
 import { TicketDetailsPage } from './ticket-details/ticket-details-page.component';
 import { TicketAssigneeSelector } from './ticket-details/ticket-assignee-selector.component';
 import { TicketInformation } from './ticket-details/ticket-information.component';
@@ -19,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TicketApp } from './ticket-app.component';
 import { TicketCreationEffects } from './ticket-creation/ticket-creation.effects';
 import { TicketAssigneeEffects } from './ticket-details/ticket-assignee.effects';
-import { TicketFiltersContainerComponent } from './ticket-filter/ticket-filters-container.component';
+import { TicketFiltersContainer } from './ticket-filter/ticket-filters-container.component';
 
 @NgModule({
   declarations: [
@@ -28,13 +27,12 @@ import { TicketFiltersContainerComponent } from './ticket-filter/ticket-filters-
     TicketListPage,
     TicketListItem,
     TicketFilterText,
-    TicketFilterLinks,
     TicketDetailsPage,
     TicketAssigneeSelector,
     TicketInformation,
     TicketCommands,
     TicketApp,
-    TicketFiltersContainerComponent
+    TicketFiltersContainer
   ],
   imports: [
     CommonModule,

@@ -11,11 +11,6 @@ export const ticketAssigneesLoadAllSuccess = createAction(
   props<{ payload: Assignee[] }>()
 );
 
-export const ticketCacheCreated = createAction(
-  '[Ticket API] Cache created ticket',
-  props<{ payload: Ticket }>()
-);
-
 export const ticketSetAssignee = createAction(
   '[Ticket Details Page] Set assignee for current ticket',
   props<{ payload: Assignee }>()
