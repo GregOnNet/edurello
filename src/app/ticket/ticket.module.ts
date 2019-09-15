@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TicketApp } from './ticket-app.component';
 import { TicketCreationEffects } from './ticket-creation/ticket-creation.effects';
 import { TicketAssigneeEffects } from './ticket-details/ticket-assignee.effects';
+import { TicketFiltersContainerComponent } from './ticket-filter/ticket-filters-container.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TicketAssigneeEffects } from './ticket-details/ticket-assignee.effects'
     TicketAssigneeSelector,
     TicketInformation,
     TicketCommands,
-    TicketApp
+    TicketApp,
+    TicketFiltersContainerComponent
   ],
   imports: [
     CommonModule,

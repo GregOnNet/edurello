@@ -1,6 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { ticketFeature } from '../ticket-feature-setup';
 import { adapter } from './ticket-list.reducer';
+import { textFilter } from '../ticket-filter/ticket-filter.selectors';
 
 export const ticketSlice = createSelector(
   ticketFeature,
@@ -13,3 +14,14 @@ export const hasNoTicketsLoaded = createSelector(
 );
 
 export const { selectAll } = adapter.getSelectors(ticketSlice);
+
+export const filteredTickets = createSelector(
+  selectAll,
+  textFilter,
+  (tickets, filter) =>
+    !!filter
+      ? tickets.filter(t =>
+          t.description.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+        )
+      : tickets
+);
