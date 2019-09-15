@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Ticket } from '../ticket';
+import { TicketFeature } from '../ticket-feature-setup';
+import { Store } from '@ngrx/store';
+import { ticketSave } from './ticket-creation.actions';
 
 @Component({
   selector: 'app-ticket-creation',
   template: `
-    <p>
-      ticket-creation works!
-    </p>
-  `,
-  styles: []
+    <app-ticket-creation-form
+      (create)="saveTicket($event)"
+    ></app-ticket-creation-form>
+  `
 })
-export class TicketCreationPage implements OnInit {
-  constructor() {}
+export class TicketCreationPage {
+  constructor(private store: Store<TicketFeature>) {}
 
-  ngOnInit() {}
+  saveTicket(newTicket: Ticket) {
+    this.store.dispatch(ticketSave({ payload: newTicket }));
+  }
 }

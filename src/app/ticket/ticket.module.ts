@@ -15,6 +15,10 @@ import { StoreModule } from '@ngrx/store';
 import { ticketReducers, ticketFeatureName } from './ticket-feature-setup';
 import { EffectsModule } from '@ngrx/effects';
 import { TicketListEffects } from './ticket-list/ticket-list.effects';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TicketApp } from './ticket-app.component';
+import { TicketCreationEffects } from './ticket-creation/ticket-creation.effects';
+import { TicketAssigneeEffects } from './ticket-details/ticket-assignee.effects';
 
 @NgModule({
   declarations: [
@@ -27,13 +31,19 @@ import { TicketListEffects } from './ticket-list/ticket-list.effects';
     TicketDetailsPage,
     TicketAssigneeSelector,
     TicketInformation,
-    TicketCommands
+    TicketCommands,
+    TicketApp
   ],
   imports: [
     CommonModule,
     StoreModule.forFeature(ticketFeatureName, ticketReducers),
-    EffectsModule.forFeature([TicketListEffects]),
-    TicketRoutingModule
+    EffectsModule.forFeature([
+      TicketCreationEffects,
+      TicketListEffects,
+      TicketAssigneeEffects
+    ]),
+    TicketRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class TicketModule {}

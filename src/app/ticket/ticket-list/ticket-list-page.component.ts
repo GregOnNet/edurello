@@ -21,16 +21,12 @@ import { Ticket } from '../ticket';
   `,
   styles: []
 })
-export class TicketListPage implements OnInit {
+export class TicketListPage {
   isLoading$: Observable<boolean>;
   tickets$: Observable<Ticket[]>;
 
   constructor(private store: Store<TicketFeature>) {
     this.isLoading$ = this.store.pipe(select(hasNoTicketsLoaded));
     this.tickets$ = this.store.pipe(select(selectAll));
-  }
-
-  ngOnInit() {
-    this.store.dispatch(ticketsLoadAll());
   }
 }

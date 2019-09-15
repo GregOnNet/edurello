@@ -2,7 +2,7 @@ import { createSelector } from '@ngrx/store';
 import { ticketFeature } from '../ticket-feature-setup';
 import { adapter } from './ticket-list.reducer';
 
-const ticketSlice = createSelector(
+export const ticketSlice = createSelector(
   ticketFeature,
   feature => feature.tickets
 );

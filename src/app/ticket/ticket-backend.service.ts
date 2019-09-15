@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { delay, map, tap } from 'rxjs/operators';
 import { Ticket } from './ticket';
 import { Assignee } from './assignee';
 
@@ -25,7 +25,12 @@ export class TicketBackend {
     }
   ];
 
-  storedUsers: Assignee[] = [{ id: 111, name: 'Victor' }];
+  storedUsers: Assignee[] = [
+    { id: 111, name: 'Victor' },
+    { id: 112, name: 'Jeff' },
+    { id: 113, name: 'Brandon' },
+    { id: 114, name: 'Wes' }
+  ];
 
   lastId = 1;
 
@@ -72,9 +77,13 @@ export class TicketBackend {
     if (foundTicket && user) {
       return of(foundTicket).pipe(
         delay(randomDelay()),
-        tap((ticket: Ticket) => {
-          ticket.assigneeId = +userId;
-        })
+        tap(
+          (ticket: Ticket) =>
+            (this.storedTickets = this.storedTickets.map(t =>
+              t.id === ticket.id ? { ...t, assigneeId: user.id } : t
+            ))
+        ),
+        map(({ id }) => this.findTicketById(id))
       );
     }
 

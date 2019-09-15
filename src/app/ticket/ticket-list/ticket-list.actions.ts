@@ -9,3 +9,8 @@ export const ticketsLoadAllSuccess = createAction(
   '[Ticket API] Success loading all tickets',
   props<{ payload: Ticket[] }>()
 );
+
+export const ticketAddCreated = createAction(
+  '[Ticket API] Cache created ticket',
+  props<{ payload: Ticket }>()
+);
