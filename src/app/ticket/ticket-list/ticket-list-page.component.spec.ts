@@ -33,13 +33,13 @@ const options: RenderOptions<TicketListPage> = {
 };
 
 describe('<app-ticket-list-page>', () => {
-  describe('When a ticket description is entered', () => {
-    it('adds a new ticket', async () => {
+  describe('When the ticket list is displayed', () => {
+    it('shows a ticket', async () => {
       const { queryAllByTestId } = await render(TicketListPage, options);
       expect(queryAllByTestId('ticket-item')).toHaveLength(1);
     });
 
-    it('adds a new ticket', async () => {
+    it('indicates if an issue has been completed', async () => {
       const { getByTestId } = await render(TicketListPage, options);
       expect(getByTestId('ticket-item-link').className).toBe('completed');
     });
