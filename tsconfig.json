@@ -16,9 +16,6 @@
     "strict": false,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "noImplicitAny": false,
-    "paths": {
-      "@app/state": ["./src/app/app-state-setup"]
-    }
+    "noImplicitAny": false
   }
 }

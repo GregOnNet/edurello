@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { ticketSlice } from '../ticket-list/ticket-list.selectors';
-import { selectRouteParam } from '@app/state';
+import { selectRouteParam } from '../../app-state-setup';
 import { ticketAssigneesSlice } from './ticket-assignee.selectors';
 
 export const activeTicket = createSelector(
