@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   OnDestroy,
@@ -18,7 +19,7 @@ import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
       placeholder="Filter by ticket description..."
     />
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketFilterText implements OnInit, OnDestroy {
   private sink = new Subscription();

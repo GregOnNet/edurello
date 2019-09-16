@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { Ticket } from '../ticket';
 import { Assignee } from '../assignee';
 
@@ -21,7 +26,7 @@ import { Assignee } from '../assignee';
       Loading ticket information for you...
     </ng-template>
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketInformation {
   @Input() ticket: Ticket & { assignee: Assignee };

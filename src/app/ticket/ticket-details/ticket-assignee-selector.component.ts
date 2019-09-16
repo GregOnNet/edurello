@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Assignee } from '../assignee';
 import construct = Reflect.construct;
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +30,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
         >Please choose an assignee.</small
       >
     </form>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketAssigneeSelector {
   @Input() assignees: Assignee[];

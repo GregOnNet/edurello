@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { Ticket } from '../ticket';
 
 @Component({
@@ -6,7 +13,7 @@ import { Ticket } from '../ticket';
   template: `
     <button (click)="emitComplete()">COMPLETE</button>
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketCommands {
   @Output() complete = new EventEmitter<Ticket>();

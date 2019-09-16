@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TicketFeature } from '../ticket-feature-setup';
 import { Store } from '@ngrx/store';
 import { ticketSetDescriptionFilter } from './ticket-filter.actions';
@@ -10,7 +10,8 @@ import { ticketSetDescriptionFilter } from './ticket-filter.actions';
       (update)="setTextFilter($event)"
     ></app-ticket-filter-text>
   `,
-  styles: [':host { display: block; }']
+  styles: [':host { display: block; }'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketFiltersContainer {
   constructor(private store: Store<TicketFeature>) {}

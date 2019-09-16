@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Ticket } from '../ticket';
 
 @Component({
@@ -16,7 +16,8 @@ import { Ticket } from '../ticket';
         <small>#{{ ticket.id }}</small>
       </a>
     </p>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketListItem {
   @Input() ticket: Ticket;

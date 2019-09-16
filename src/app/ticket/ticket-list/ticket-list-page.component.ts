@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filteredTickets, hasNoTicketsLoaded } from './ticket-list.selectors';
@@ -20,7 +20,7 @@ import { Ticket } from '../ticket';
       ></app-ticket-list-item
     ></ng-template>
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketListPage {
   isLoading$: Observable<boolean>;

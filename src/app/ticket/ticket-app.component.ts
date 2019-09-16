@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ticketsLoadAll } from './ticket-list/ticket-list.actions';
 import { TicketFeature } from './ticket-feature-setup';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
     <hr />
     <router-outlet></router-outlet>
   `,
-  styles: []
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketApp implements OnInit {
   constructor(private store: Store<TicketFeature>) {}

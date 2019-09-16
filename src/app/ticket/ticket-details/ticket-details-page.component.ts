@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Assignee } from '../assignee';
 import { TicketFeature } from '../ticket-feature-setup';
@@ -21,7 +21,8 @@ import { ticketComplete } from '../ticket-list/ticket-list.actions';
       (select)="setAssignee($event)"
     ></app-ticket-assignee-selector>
     <app-ticket-commands (complete)="completeTicket()"></app-ticket-commands>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TicketDetailsPage implements OnInit {
   ticket$: Observable<Ticket & { assignee: Assignee }>;
