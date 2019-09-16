@@ -16,6 +16,7 @@ import { Ticket } from '../ticket';
       <app-ticket-list-item
         [ticket]="ticket"
         *ngFor="let ticket of tickets$ | async"
+        data-testid="ticket-item"
       ></app-ticket-list-item
     ></ng-template>
   `,

@@ -9,10 +9,12 @@ import { Ticket } from '../ticket';
       <a
         [routerLink]="['..', 'details', ticket.id]"
         [class.completed]="ticket.completed"
-        ><strong>{{ ticket.description }}</strong>
-        <br />
-        <small>#{{ ticket.id }}</small></a
+        data-testid="ticket-item-link"
       >
+        <strong>{{ ticket.description }}</strong>
+        <br />
+        <small>#{{ ticket.id }}</small>
+      </a>
     </p>
   `
 })

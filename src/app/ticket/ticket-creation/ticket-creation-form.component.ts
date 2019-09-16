@@ -7,7 +7,11 @@ import { Ticket } from '../ticket';
   template: `
     <form [formGroup]="creationForm" (ngSubmit)="emitCreateTicket()">
       <div>
-        <input type="text" formControlName="description" />
+        <input
+          type="text"
+          formControlName="description"
+          data-testid="ticket-description"
+        />
         <small *ngIf="creationForm.get('description').hasError('required')"
           >Please add a description.</small
         >
@@ -15,7 +19,11 @@ import { Ticket } from '../ticket';
           >The description needs to be at least 2 characters long.</small
         >
       </div>
-      <button [disabled]="creationForm.invalid" type="submit">
+      <button
+        [disabled]="creationForm.invalid"
+        type="submit"
+        data-testid="ticket-create"
+      >
         CREATE TICKET
       </button>
     </form>
